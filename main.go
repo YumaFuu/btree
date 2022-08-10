@@ -156,8 +156,6 @@ func main() {
 		t.insert(j)
 	}
 
-	// fmt.Println("---------")
-	// printNode(t.node)
 	writeGraph(t)
 
 	for {
