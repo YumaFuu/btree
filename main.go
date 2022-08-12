@@ -59,19 +59,21 @@ func printNode(n *Node) {
 	printNode(n.right)
 }
 
-func (n *Node) find(i int) bool {
+func (n *Node) find(i, c int) (bool, int) {
+	c += 1
+
 	if n == nil {
-		return false
+		return false, c
 	}
 
 	if n.value == i {
-		return true
+		return true, c
 	}
 
 	if n.value >= i {
-		return n.left.find(i)
+		return n.left.find(i, c)
 	} else {
-		return n.right.find(i)
+		return n.right.find(i, c)
 	}
 }
 
@@ -174,6 +176,7 @@ func main() {
 			continue
 		}
 
-		fmt.Println(t.node.find(i))
+		c := 0
+		fmt.Println(t.node.find(i, c))
 	}
 }
